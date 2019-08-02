@@ -18,7 +18,7 @@ class CharactersManager {
 
 	mount(connections){
 		this.connections = connections;
-		for(let username in connection){
+		for(let username in connections){
 			this.character[username] = new Character(username);
 		}
 	}
@@ -30,7 +30,7 @@ class CharactersManager {
 	 * @return {Number} Kamas
 	 */
 	getKamas(username){
-		if(!this.isUsernameExists) return;
+		if(!this.isUsernameExists(username)) return;
 		return this.characters[username].kamas;
 	}
 	
@@ -41,7 +41,7 @@ class CharactersManager {
 	 * @return {Object} Spells 
 	 */
 	getSpells(username){
-		if(!this.isUsernameExists) return;
+		if(!this.isUsernameExists(username)) return;
 		return this.characters[username].spells;
 	}
 
@@ -52,7 +52,7 @@ class CharactersManager {
 	 * @return {Number} Level
 	 */
 	getLevel(username){
-		if(!this.isUsernameExists) return;
+		if(!this.isUsernameExists(username)) return;
 		return this.characters[username].level;
 	}
 
@@ -63,7 +63,7 @@ class CharactersManager {
 	 * @return {Object} Elements
 	 */
 	getElementsStats(username){
-		if(!this.isUsernameExists) return;
+		if(!this.isUsernameExists(username)) return;
 		return this.characters[username].elements;
 	}
 
@@ -74,7 +74,7 @@ class CharactersManager {
 	 * @return {Number} Lifepoints
 	 */
 	getLifePoints(username){
-		if(!this.isUsernameExists) return;
+		if(!this.isUsernameExists(username)) return;
 		return this.characters[username].lifePoints.current;
 	}
 
@@ -85,7 +85,7 @@ class CharactersManager {
 	 * @return {Number} Max Lifepoints
 	 */
 	getMaxLifePoints(username){
-		if(!this.isUsernameExists) return;
+		if(!this.isUsernameExists(username)) return;
 		return this.characters[username].lifePoints.max;
 	}
 
@@ -96,7 +96,7 @@ class CharactersManager {
 	 * @return {Number} AP
 	 */
 	getAp(username){
-		if(!this.isUsernameExists) return;
+		if(!this.isUsernameExists(username)) return;
 		return this.characters[username].AP;
 	}
 
@@ -107,7 +107,7 @@ class CharactersManager {
 	 * @return {Number} MP
 	 */
 	getMP(username){
-		if(!this.isUsernameExists) return;
+		if(!this.isUsernameExists(username)) return;
 		return this.characters[username].MP;
 	}
 
@@ -118,7 +118,7 @@ class CharactersManager {
 	 * @return {Number} State points
 	 */
 	getStatsPoints(username){
-		if(!this.isUsernameExists) return;
+		if(!this.isUsernameExists(username)) return;
 		return this.characters[username].MP;
 	}
 
@@ -129,7 +129,7 @@ class CharactersManager {
 	 * @return {Number} Spell points
 	 */
 	getSpellPoints(username){
-		if(!this.isUsernameExists) return;
+		if(!this.isUsernameExists(username)) return;
 		return this.characters[username].MP;
 	}
 
@@ -141,7 +141,7 @@ class CharactersManager {
 	 * @param {Number} points 
 	 */
 	addElementPoints(username, statId, points){
-		if(!this.isUsernameExists) return;
+		if(!this.isUsernameExists(username)) return;
 
 		const character = this.characters[username];
 		if(points > character.statsPoints) {
@@ -164,7 +164,7 @@ class CharactersManager {
 	 * @param {Number} spellLevel 
 	 */
 	spellUpgrade(username, spellId, spellLevel){
-		if(!this.isUsernameExists) return;
+		if(!this.isUsernameExists(username)) return;
 
 		const character = this.characters[username];
 

@@ -9,8 +9,8 @@ class Character {
 		this.username = username;
 		this.level = {};
 		this.elements = {};
-		this.AP = 0;
-		this.MP = 0;
+		this.actionPoints = 0;
+		this.movementPoints = 0;
 		this.lifePoints = {};
 		this.kamas = 0;
 		this.statsPoints = 0;
@@ -42,8 +42,8 @@ class Character {
 
 		//Updating AP & MP
 		const {actionPointsCurrent, movementPointsCurrent} = stats;
-		this.AP = actionPointsCurrent;
-		this.MP = movementPointsCurrent;
+		this.actionPoints = actionPointsCurrent;
+		this.movementPoints = movementPointsCurrent;
 
 
 		//Updating life points
@@ -54,7 +54,6 @@ class Character {
 		}
 
 		//Update level & xp
-		//TODO: Get level from xp table
 		const {experience, experienceLevelFloor, experienceNextLevelFloor} = stats;
 		this.level = {
 			currentXp: experience,
