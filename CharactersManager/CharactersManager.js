@@ -19,7 +19,7 @@ class CharactersManager {
 	mount(connections){
 		this.connections = connections;
 		for(let username in connections){
-			this.character[username] = new Character(username);
+			this.characters[username] = new Character(username);
 		}
 	}
 
